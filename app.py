@@ -6,13 +6,13 @@ from services.visualizer import Visualizer
 from services.validator import DatasetValidator
 
 # CONFIG
-st.set_page_config(page_title="Academic Insight AI", layout="wide")
+st.set_page_config(page_title="Academic Insight", layout="wide")
 
 # TITULO
 st.title("Academic Insight AI")
 
 st.markdown("""
-Sistema inteligente para análisis de bienestar
+Sistema para análisis de bienestar
 emocional y rendimiento académico estudiantil.
 """)
 
