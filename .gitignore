@@ -1,3 +1,15 @@
 /.DS_Store
 /data
 /venv
+/__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.log
+*.csv
+*.json
+*.xlsx
+*.zip
+*.tar.gz

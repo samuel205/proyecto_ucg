@@ -5,6 +5,8 @@ class EstrategiaAsistencia(EstrategiaAnalisis):
 
     def analizar(self, df):
 
-        estudiantes_riesgo = df[df["academic_performance"] < 70]
+        estudiantes_riesgo = df[
+            (df["stress_level"] >= 8) & (df["academic_performance"] <= 2.5)
+        ]
 
-        return {"cantidad_riesgo": len(estudiantes_riesgo)}
+        return {"estudiantes_riesgo": len(estudiantes_riesgo)}

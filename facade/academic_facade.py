@@ -4,11 +4,12 @@ from factory.analysis_factory import FabricaAnalisis
 
 class FachadaAcademica:
 
-    def __init__(self, path_dataset):
+    def __init__(self, uploaded_file):
 
-        self.df = DataLoader.cargar_dataset(path_dataset)
+        self.df = DataLoader.cargar_dataset(uploaded_file)
 
     def obtener_dataset(self):
+
         return self.df
 
     def ejecutar_analisis(self, tipo):
