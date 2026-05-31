@@ -9,7 +9,7 @@ from services.validator import DatasetValidator
 st.set_page_config(page_title="Academic Insight", layout="wide")
 
 # TITULO
-st.title("Academic Insight AI")
+st.title("Academic Insight")
 
 st.markdown("""
 Sistema para análisis de bienestar
