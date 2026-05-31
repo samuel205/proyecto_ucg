@@ -37,7 +37,7 @@ if uploaded_file is None:
 
 fachada = FachadaAcademica(uploaded_file)
 
-df = fachada.obtener_reporte_limpieza()
+df = fachada.obtener_dataset()
 
 # ==========================
 # VALIDAR COLUMNAS
@@ -85,9 +85,9 @@ if menu == "Dashboard":
 
     col3.metric("Promedio Ansiedad", MetricsService.promedio_ansiedad(df))
 
-    st.plotly_chart(Visualizer.grafico_estres(df), use_container_width=True)
+    st.plotly_chart(Visualizer.grafico_estres(df), width='stretch')
 
-    st.plotly_chart(Visualizer.grafico_rendimiento(df), use_container_width=True)
+    st.plotly_chart(Visualizer.grafico_rendimiento(df), width='stretch')
 
 # ==========================
 # STRESS
@@ -101,7 +101,7 @@ elif menu == "Stress":
 
     st.json(resultado)
 
-    st.plotly_chart(Visualizer.grafico_estres(df), use_container_width=True)
+    st.plotly_chart(Visualizer.grafico_estres(df), width='stretch')
 
 # ==========================
 # ACADEMICO
@@ -115,7 +115,7 @@ elif menu == "Academico":
 
     st.json(resultado)
 
-    st.plotly_chart(Visualizer.grafico_rendimiento(df), use_container_width=True)
+    st.plotly_chart(Visualizer.grafico_rendimiento(df), width='stretch')
 
 # ==========================
 # RIESGO
@@ -129,7 +129,7 @@ elif menu == "Riesgo":
 
     st.json(resultado)
 
-    st.plotly_chart(Visualizer.grafico_ansiedad(df), use_container_width=True)
+    st.plotly_chart(Visualizer.grafico_ansiedad(df), width='stretch')
 
 # ==========================
 # VISTA DEL DATASET
@@ -137,4 +137,12 @@ elif menu == "Riesgo":
 
 st.subheader("Vista previa del dataset")
 
-st.dataframe(fachada.obtener_reporte_limpieza(), use_container_width=True)
+st.dataframe(
+    df,
+    width='stretch'
+)
+
+st.dataframe(
+    fachada.obtener_reporte_limpieza(),
+    width='stretch'
+)

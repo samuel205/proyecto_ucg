@@ -14,14 +14,17 @@ class DataCleaner:
     @classmethod
     def limpiar(cls, df):
 
+        print("===== COLUMNAS =====")
+        print(df.columns.tolist())
+
+        print("===== NULOS =====")
+        print(df.isna().sum())
+
         reporte = []
 
         for columna in df.columns:
 
             faltantes_antes = df[columna].isna().sum()
-
-            if faltantes_antes == 0:
-                continue
 
             if columna in cls.COLUMNAS_MEDIA:
 
@@ -49,7 +52,11 @@ class DataCleaner:
                     "columna": columna,
                     "faltantes_antes": faltantes_antes,
                     "faltantes_despues": df[columna].isna().sum(),
-                    "estrategia": estrategia.__class__.__name__,
+                    "estrategia": (
+                        estrategia.__class__.__name__
+                        if faltantes_antes > 0
+                        else "No requerida"
+                    ),
                 }
             )
 
