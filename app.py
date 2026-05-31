@@ -37,7 +37,7 @@ if uploaded_file is None:
 
 fachada = FachadaAcademica(uploaded_file)
 
-df = fachada.obtener_dataset()
+df = fachada.obtener_reporte_limpieza()
 
 # ==========================
 # VALIDAR COLUMNAS
@@ -137,4 +137,4 @@ elif menu == "Riesgo":
 
 st.subheader("Vista previa del dataset")
 
-st.dataframe(df.head())
+st.dataframe(fachada.obtener_reporte_limpieza(), use_container_width=True)
