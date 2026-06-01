@@ -20,6 +20,9 @@
 *.xlsx
 *.zip
 *.tar.gz
+facade/__pycache__/*
+services/__pycache__/*
+strategies/__pycache__/*
 facade/__pycache__/academic_facade.cpython-314.pyc
 services/__pycache__/metrics.cpython-314.pyc
 services/__pycache__/visualizer.cpython-314.pyc
