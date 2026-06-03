@@ -70,7 +70,7 @@ def render_activity(column, df):
                 margin=dict(l=20, r=20, t=20, b=20),
             )
 
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
 
 
 # ============================================
@@ -103,7 +103,7 @@ def render_sleep(column, df):
 
             fig.update_layout(height=300, margin=dict(l=30, r=30, t=20, b=20))
 
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
 
             if percentage >= 60:
 

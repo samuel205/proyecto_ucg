@@ -54,7 +54,7 @@ def evaluar_estado(tipo, valor):
 # =========================
 
 
-def render_card(column, title, value, estado, color):
+def render_card(column, title, value):
 
     with column:
 
@@ -84,16 +84,16 @@ def metric_cards(df):
 
     estado, color = evaluar_estado("social", social)
 
-    render_card(col1, "Avg. Daily Social Media", f"{social} hrs/day", estado, color)
+    render_card(col1, "Avg. Daily Social Media", f"{social} hrs/day")
 
     estado, color = evaluar_estado("sleep", sleep)
 
-    render_card(col2, "Avg. Sleep Quality", f"{sleep} hrs/night", estado, color)
+    render_card(col2, "Avg. Sleep Quality", f"{sleep} hrs/night")
 
     estado, color = evaluar_estado("stress", stress)
 
-    render_card(col3, "Mean Stress Level", f"{stress}/10", estado, color)
+    render_card(col3, "Mean Stress Level", f"{stress}/10")
 
     estado, color = evaluar_estado("wellbeing", wellbeing)
 
-    render_card(col4, "Wellbeing Score", f"{wellbeing}", estado, color)
+    render_card(col4, "Wellbeing Score", f"{wellbeing}")

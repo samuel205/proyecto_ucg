@@ -104,4 +104,4 @@ def render_stress_breakdown(df):
             margin=dict(l=20, r=40, t=40, b=20),
         )
 
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
