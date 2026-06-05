@@ -2,23 +2,14 @@ from strategies.mean_strategy import EstrategiaMedia
 from strategies.median_strategy import EstrategiaMediana
 from strategies.mode_strategy import EstrategiaModa
 from strategies.zero_strategy import EstrategiaCero
+import pandas as pd
 
 
 class FabricaLimpieza:
 
     @staticmethod
-    def crear(tipo):
-
-        if tipo == "media":
-            return EstrategiaMedia()
-
-        elif tipo == "mediana":
+    def crear(columna):
+        if pd.api.types.is_numeric_dtype(columna):
             return EstrategiaMediana()
-
-        elif tipo == "moda":
+        else:
             return EstrategiaModa()
-
-        elif tipo == "cero":
-            return EstrategiaCero()
-
-        raise ValueError("Estrategia no soportada")

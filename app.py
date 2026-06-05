@@ -2,8 +2,8 @@ import streamlit as st
 
 from facade.academic_facade import FachadaAcademica
 
-from components.sidebar import render_sidebar
-from components.dashboard import render_dashboard
+from ui.sidebar import render_sidebar
+from ui.dashboard import render_dashboard
 
 st.set_page_config(page_title="UCG", layout="wide")
 

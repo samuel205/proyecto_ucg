@@ -3,13 +3,19 @@ from factory.cleaning_factory import FabricaLimpieza
 
 class DataCleaner:
 
-    COLUMNAS_MEDIA = ["daily_social_media_hours", "sleep_hours", "academic_performance"]
-
-    COLUMNAS_MEDIANA = ["stress_level", "anxiety_level", "addiction_level"]
-
-    COLUMNAS_MODA = ["gender", "platform_usage", "social_interaction_level"]
-
-    COLUMNAS_CERO = ["physical_activity", "depression_label"]
+    COLUMNAS = [
+        "daily_social_media_hours",
+        "sleep_hours",
+        "academic_performance",
+        "stress_level",
+        "anxiety_level",
+        "addiction_level",
+        "gender",
+        "platform_usage",
+        "social_interaction_level",
+        "physical_activity",
+        "depression_label",
+    ]
 
     @classmethod
     def limpiar(cls, df):
@@ -22,21 +28,9 @@ class DataCleaner:
 
         reporte = []
 
-        for columna in df.columns:
-
+        for columna in cls.COLUMNAS:
             faltantes_antes = df[columna].isna().sum()
-
-            if columna in cls.COLUMNAS_MEDIA:
-                estrategia = FabricaLimpieza.crear("media")
-            elif columna in cls.COLUMNAS_MEDIANA:
-                estrategia = FabricaLimpieza.crear("mediana")
-            elif columna in cls.COLUMNAS_MODA:
-                estrategia = FabricaLimpieza.crear("moda")
-            elif columna in cls.COLUMNAS_CERO:
-                estrategia = FabricaLimpieza.crear("cero")
-            else:
-                estrategia = FabricaLimpieza.crear("moda")
-
+            estrategia = FabricaLimpieza.crear(columna)
             df[columna] = estrategia.limpiar(df[columna])
 
             reporte.append(
